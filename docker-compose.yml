@@ -36,21 +36,20 @@ services:
       - ./:/workdir:ro
     restart: unless-stopped
 
-  node-server:
-    build:
-      context: ./packages/server
-    container_name: node-server
-    restart: "on-failure"
-    expose:
-      - 8080
-    volumes:
-      - './packages/server:/app'
-      - '/app/node_modules'
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-    stdin_open: true
-    tty: true
+# node-server:
+#   build: ./packages/server
+#   image: tuxxon/node-server
+#   restart: "on-failure"
+#   expose:
+#     - 8080
+#   volumes:
+#     - './packages/server:/app'
+#     - '/app/node_modules'
+#   environment:
+#     - NODE_ENV=development
+#     - CHOKIDAR_USEPOLLING=true
+#   stdin_open: true
+#   tty: true
 
 volumes:
   nginx_conf:
