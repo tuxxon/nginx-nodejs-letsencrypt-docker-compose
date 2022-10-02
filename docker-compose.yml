@@ -36,10 +36,10 @@ services:
       - ./:/workdir:ro
     restart: unless-stopped
 
-  my-backend:
+  node-server:
     build:
       context: ./packages/server
-    container_name: server
+    container_name: node-server
     restart: "on-failure"
     expose:
       - 8080
