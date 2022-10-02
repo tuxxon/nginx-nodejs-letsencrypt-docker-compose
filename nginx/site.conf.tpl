@@ -15,14 +15,6 @@ server {
     listen 443 ssl;
     server_name ${domain} www.${domain};
 
-    location / {
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_pass http://node-server:8080/;
-    }
-
     ssl_certificate /etc/nginx/sites/ssl/dummy/${domain}/fullchain.pem;
     ssl_certificate_key /etc/nginx/sites/ssl/dummy/${domain}/privkey.pem;
 
